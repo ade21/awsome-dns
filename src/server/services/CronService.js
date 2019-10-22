@@ -135,7 +135,7 @@ class CronService {
     });
   }
 
-  async updateRecord({ zoneId, record, r53 }) {
+  async updateRecord({ zoneId, record }) {
     let current_ip = undefined;
     try {
       current_ip = (await axios.get("https://api.ipify.org/?format=json")).data
@@ -154,6 +154,22 @@ class CronService {
       level: "info",
       message: `Manually updating record '${record.name}' with ip address '${current_ip}'`
     });
+
+    let r53 = null;
+    try {
+      const credentials = SettingsDB.get("aws-credentials");
+      r53 = new Route53Service({
+        accessKeyId: credentials.key,
+        secretAccessKey: credentials.secret
+      });
+      await r53.zonesAsync();
+    } catch (err) {
+      this.app.emit("log", {
+        level: "error",
+        message: `Error while accessing route53. Please check credentials.`
+      });
+      return;
+    }
 
     r53.setRecordAsync({
       zoneId,
