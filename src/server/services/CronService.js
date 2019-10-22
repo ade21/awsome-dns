@@ -155,12 +155,6 @@ class CronService {
       message: `Manually updating record '${record.name}' with ip address '${current_ip}'`
     });
 
-    const credentials = SettingsDB.get("aws-credentials");
-    const r53 = new Route53Service({
-      accessKeyId: credentials.key,
-      secretAccessKey: credentials.secret
-    });
-
     r53.setRecordAsync({
       zoneId,
       name: record.name,
