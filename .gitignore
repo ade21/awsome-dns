@@ -3,6 +3,7 @@ node_modules
 /logs/*.log
 /database/*.db
 /dist
+/index.js
 
 # local env files
 .env.local
