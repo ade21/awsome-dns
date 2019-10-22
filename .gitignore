@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
-/logs/*
-/database/*
+/logs/*.log
+/database/*.db
 /dist
 
 # local env files
