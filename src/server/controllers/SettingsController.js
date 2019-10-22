@@ -101,7 +101,13 @@ module.exports = {
   },
 
   getAWSCredentials(req, res) {
-    const credentials = SettingsDB.get("aws-credentials");
+    let credentials = SettingsDB.get("aws-credentials");
+    if (credentials == undefined) {
+      credentials = {
+        key: "",
+        secret: ""
+      };
+    }
     res.json(credentials);
   },
 
