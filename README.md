@@ -2,7 +2,7 @@
 
 Welcome, this is the tool you were ever looking for! With AWSOME//DNS you can use AWS Route 53 as your private dynamic dns service and forward your own domains to your servers at home (e.g. NAS, RaspberryPi, etc...).
 
-## Using AWSOME // DNS
+## How to use
 
 First of all you have to download one of the latest releases.
 
