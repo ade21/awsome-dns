@@ -4,7 +4,7 @@ Welcome, this is the tool you were ever looking for! With AWSOME//DNS you can us
 
 ## How to use
 
-First of all you have to download one of the latest (releases)[https://github.com/ade21/awsome-dns/releases].
+First of all you have to download one of the latest [releases](https://github.com/ade21/awsome-dns/releases).
 
 ### Installing dependencies
 
